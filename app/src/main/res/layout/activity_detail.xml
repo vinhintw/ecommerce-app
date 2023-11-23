@@ -61,8 +61,8 @@
                     android:layout_margin="16dp"
                     android:background="@drawable/gray_background"
                     android:layout_marginStart="16dp"
-                    app:layout_constraintEnd_toEndOf="16dp"
-                    app:layout_constraintStart_toStartOf="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/back_btn"
                     >
                 </View>
@@ -93,7 +93,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/titleTxt"
+                        android:id="@+id/titleTxt2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Title"
@@ -104,7 +104,7 @@
                         ></TextView>
 
                     <TextView
-                        android:id="@+id/priceTxt"
+                        android:id="@+id/priceTxt2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="$10"
