@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,7 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="70dp">
 
 
             <LinearLayout
@@ -136,8 +137,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                </ImageView>
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
 
                 <TextView
                     android:id="@+id/textView4"
@@ -159,28 +159,26 @@
                     android:layout_width="90dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="16dp"
-                    android:textColor="@color/white"
                     android:background="@drawable/ogrange_btn"
-                    android:text=" Buy Now"
                     android:gravity="center"
+                    android:text=" Buy Now"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/textView4"
-                    app:layout_constraintTop_toTopOf="@id/textView4"
                     app:layout_constraintEnd_toEndOf="parent"
-                    ></TextView>
+                    app:layout_constraintTop_toTopOf="@id/textView4"></TextView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="8dp"
                 android:text="Categories"
                 android:textColor="@color/black"
                 android:textSize="19dp"
-                android:textStyle="bold"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="8dp"
-                ></TextView>
+                android:textStyle="bold"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -313,8 +311,7 @@
                         android:layout_marginTop="8dp"
                         android:text="View All"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        ></TextView>
+                        android:textColor="@color/black"></TextView>
                 </LinearLayout>
             </LinearLayout>
 
@@ -328,32 +325,29 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/black"
-                    android:text="Popular Product"
-                   android:textSize="19dp"
-                    android:textStyle="bold"
                     android:layout_marginStart="24dp"
-                    ></TextView>
+                    android:layout_weight="1"
+                    android:text="Popular Product"
+                    android:textColor="@color/black"
+                    android:textSize="19dp"
+                    android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
-                    android:textColor="@color/green"
                     android:text="See all"
-                    ></TextView>
+                    android:textColor="@color/green"></TextView>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:id="@+id/view1"
-                ></androidx.recyclerview.widget.RecyclerView>
+                android:clipToPadding="false"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
 

@@ -3,6 +3,7 @@
     <style name="Base.Theme.APPFinalProject_11131415" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimaryDark">@color/green</item>
     </style>
 
     <style name="Theme.APPFinalProject_11131415" parent="Base.Theme.APPFinalProject_11131415" />
