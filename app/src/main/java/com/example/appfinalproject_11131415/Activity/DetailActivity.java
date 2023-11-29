@@ -26,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
         managementCart = new ManagementCart(this);
 
         initView();
-        getBundle();
+        //getBundle();
     }
 
     private void getBundle() {
@@ -52,8 +52,8 @@ public class DetailActivity extends AppCompatActivity {
     private void initView() {
         addToCartBtn = findViewById(R.id.addToCartBtn);
         feeTxt = findViewById(R.id.priceTxt2);
-        titleTxt = findViewById(R.id.titleTxt);
-        descriptionTxt = findViewById(R.id.descriptionTxt);
+        titleTxt = findViewById(R.id.titleTxt2);
+        descriptionTxt = findViewById(R.id.descriptionTxt2);
         picItem = findViewById(R.id.item_pic);
         reviewTxt = findViewById(R.id.reviewTxt);
         scoreTxt = findViewById(R.id.scoreTxt);

@@ -27,7 +27,7 @@ public class ManagementCart extends AppCompatActivity {
             }
         }
         if (existAlready){
-            listpop.get(n).setNumberCart(item.getNumberCart());
+            listpop.get(n).setNumberCart(item.getNumberInCart());
         }else {
             listpop.add(item);
         }

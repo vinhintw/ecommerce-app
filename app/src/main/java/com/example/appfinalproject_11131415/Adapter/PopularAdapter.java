@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.appfinalproject_11131415.Activity.DetailActivity;
+import com.example.appfinalproject_11131415.Activity.MainActivity;
 import com.example.appfinalproject_11131415.Domain.PopularDomain;
 import com.example.appfinalproject_11131415.R;
 
@@ -50,7 +51,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
-            intent.putExtra("object", items.get(position));
+            //intent.putExtra("object", items.get(position));
             holder.itemView.getContext().startActivity(intent);
         });
     }
@@ -73,20 +74,4 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
             pic = itemView.findViewById(R.id.pic);
         }
     }
-    public ArrayList<PopularDomain> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<PopularDomain> items) {
-        this.items = items;
-    }
-
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
 }
