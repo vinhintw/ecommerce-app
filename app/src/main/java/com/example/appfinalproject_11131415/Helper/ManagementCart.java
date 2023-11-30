@@ -34,8 +34,32 @@ public class ManagementCart extends AppCompatActivity {
         tinyDB.putListObject("CartList", listpop);
         Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
      }
-    private ArrayList<PopularDomain> getlistCart() {
+    public ArrayList<PopularDomain> getlistCart() {
         return tinyDB.getListObject("CartList");
      }
 
+     public Double getTotalFee(){
+         ArrayList<PopularDomain> listItem = getlistCart();
+         double fee = 0;
+         for (int i = 0; i < listItem.size(); i++) {
+             fee = fee + (listItem.get(i).getPrice()*listItem.get(i).getNumberInCart());
+         }
+        return fee;
+     }
+
+     public void minusNumberItem(ArrayList<PopularDomain> listItem, int position, ChangeNumberItemsListener changeNumberItemsListener){
+         if (listItem.get(position).getNumberInCart()==1){
+             listItem.remove(position);
+         } else {
+             listItem.get(position).setNumberInCart((listItem.get(position).getNumberInCart()-1));
+         }
+         tinyDB.putListObject("CartList", listItem);
+         changeNumberItemsListener.change();
+     }
+
+     public void plusNumberItem(ArrayList<PopularDomain> listItem, int position, ChangeNumberItemsListener changeNumberItemsListener){
+         listItem.get(position).setNumberInCart(listItem.get(position).getNumberInCart()+1);
+         tinyDB.putListObject("CartList", listItem);
+         changeNumberItemsListener.change();
+     }
 }

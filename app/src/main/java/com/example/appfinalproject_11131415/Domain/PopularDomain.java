@@ -11,6 +11,10 @@ public class PopularDomain implements Serializable {
     private double price;
     private double score;
 
+    public void setNumberInCart(int numberInCart) {
+        this.numberInCart = numberInCart;
+    }
+
     public PopularDomain(String title, String description, String picUrl, int review, double score, double price) {
         this.title = title;
         this.description = description;
@@ -74,4 +78,5 @@ public class PopularDomain implements Serializable {
     public void setNumberCart(int numberInCart) {
         this.numberInCart = numberInCart;
     }
+
 }

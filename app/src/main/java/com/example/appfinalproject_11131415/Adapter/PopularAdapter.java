@@ -49,11 +49,17 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
                 .transform(new GranularRoundedCorners(30,30,0,0))
                 .into(holder.pic);
 
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
-            //intent.putExtra("object", items.get(position));
-            holder.itemView.getContext().startActivity(intent);
-        });
+//        holder.itemView.setOnClickListener(v -> {
+//            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+//            //intent.putExtra("object", items.get(position));
+//            holder.itemView.getContext().startActivity(intent);
+//        });
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(view.getContext(), DetailActivity.class);
+            intent.putExtra("object", items.get(position));
+            view.getContext().startActivity(intent);
+    });
+
     }
 
 
