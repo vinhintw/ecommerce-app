@@ -2,15 +2,12 @@ package com.example.appfinalproject_11131415.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appfinalproject_11131415.Helper.DBHelper;
 import com.example.appfinalproject_11131415.databinding.ActivitySignupBinding;
-;
-
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -35,6 +32,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (!checkUserName){
                     Boolean insert = dbHelper.insertData(name, phoneNumber, email, password);
+                    //Log.d("msg", checkUserName + "");
 
                     if (insert){
                         Toast.makeText(SignupActivity.this, "Signup Successfully", Toast.LENGTH_SHORT).show();
@@ -51,11 +49,8 @@ public class SignupActivity extends AppCompatActivity {
             }
 
         });
-        binding.signInRedirectText.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-            startActivity(intent);
-        });
-        //setContentView(R.layout.activity_signup);
+        binding.signInRedirectText.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignInActivity.class)));
+        binding.signupBackBtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignInActivity.class)));
     }
 }
 

@@ -17,6 +17,9 @@
             android:name=".Activity.SignupActivity"
              />
         <activity
+            android:name=".Activity.SignInActivity"
+            />
+        <activity
             android:name=".Activity.CartActivity"
             android:exported="true" />
         <activity android:name=".Activity.DetailActivity" />

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.appfinalproject_11131415.Activity.DetailActivity;
-import com.example.appfinalproject_11131415.Activity.MainActivity;
 import com.example.appfinalproject_11131415.Domain.PopularDomain;
 import com.example.appfinalproject_11131415.R;
 
@@ -49,11 +48,6 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
                 .transform(new GranularRoundedCorners(30,30,0,0))
                 .into(holder.pic);
 
-//        holder.itemView.setOnClickListener(v -> {
-//            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
-//            //intent.putExtra("object", items.get(position));
-//            holder.itemView.getContext().startActivity(intent);
-//        });
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), DetailActivity.class);
             intent.putExtra("object", items.get(position));

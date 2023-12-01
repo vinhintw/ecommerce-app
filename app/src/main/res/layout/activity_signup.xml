@@ -101,7 +101,7 @@ tools:context=".Activity.SignupActivity">
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:hint="@string/login_user_name_hint"/>
+                android:hint="Email"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -151,13 +151,15 @@ tools:context=".Activity.SignupActivity">
 </androidx.cardview.widget.CardView>
 
         </LinearLayout>
+
         <ImageView
+            android:id="@+id/signupBackBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
             android:src="@android:drawable/ic_menu_close_clear_cancel" />
     </RelativeLayout>
 

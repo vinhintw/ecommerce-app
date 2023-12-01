@@ -3,6 +3,7 @@ package com.example.appfinalproject_11131415.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appfinalproject_11131415.Adapter.PopularAdapter;
 import com.example.appfinalproject_11131415.Domain.PopularDomain;
 import com.example.appfinalproject_11131415.R;
+import com.example.appfinalproject_11131415.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,27 +26,48 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+	ActivityMainBinding binding;
 	private RecyclerView.Adapter adapterPopular;
+
 	private RecyclerView recyclerViewPopular;
 	private static final String JSON_FILE_NAME = "clothing_data.json";
+	private String UserName = "";
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		
+		binding = ActivityMainBinding.inflate(getLayoutInflater());
+		setContentView(binding.getRoot());
+
 		initRecyclerView();
 		bottomNavigation();
+		Intent intent = getIntent();
+		if (intent != null && intent.hasExtra("USERNAME")) {
+			UserName = intent.getStringExtra("USERNAME");
+		}
+		binding.userNameTxt.setText(UserName);
+
 	}
 
 	private void bottomNavigation() {
 		LinearLayout homeBtn = findViewById(R.id.homeBtn);
 		LinearLayout cartBtn = findViewById(R.id.cartBtn);
+		LinearLayout profileBtn = findViewById(R.id.profileBtn);
+
 
 		homeBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MainActivity.class)));
 
 		cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
+		profileBtn.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						if(binding.userNameTxt.getText().equals("")){
+							startActivity(new Intent(MainActivity.this, SignInActivity.class));
+						}
+					}
+				});
 	}
 
 	private void initRecyclerView() {
