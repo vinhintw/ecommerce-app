@@ -20,7 +20,7 @@
             android:id="@+id/pic"
             android:layout_width="175dp"
             android:layout_height="155dp"
-            android:src="@drawable/item_1"
+            android:src="@drawable/short_sleeve"
             android:layout_margin="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

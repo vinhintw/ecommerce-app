@@ -1,14 +1,13 @@
 package com.example.appfinalproject_11131415.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appfinalproject_11131415.Adapter.PopularAdapter;
 import com.example.appfinalproject_11131415.Domain.PopularDomain;
@@ -23,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 	private RecyclerView.Adapter adapterPopular;
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
 				PopularDomain popularDomain = new PopularDomain(title, description, type, review, rating, price);
 				items.add(popularDomain);
-				Log.d("msg", items.get(i).getTitle() + " " + items.size());
+				Log.d("msg", items.get(i).getPicUrl() + " " + items.size());
 			}
 
 		} catch (IOException | JSONException e) {

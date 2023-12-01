@@ -32,9 +32,17 @@
     "price": 540
   },
   {
+    "title": "Short Sleeves",
+    "description": "description3",
+    "type": "short_sleeve",
+    "review": 34,
+    "rating": 4,
+    "price": 540
+  },
+  {
     "title": "Pants",
     "description": "description3",
-    "type": "pants",
+    "type": "coat",
     "review": 34,
     "rating": 5,
     "price": 540
@@ -43,14 +51,6 @@
     "title": "Pants",
     "description": "description3",
     "type": "pants",
-    "review": 34,
-    "rating": 5,
-    "price": 540
-  },
-  {
-    "title": "Pants",
-    "description": "description3",
-    "type": "pants.jpg",
     "review": 34,
     "rating": 5,
     "price": 540
