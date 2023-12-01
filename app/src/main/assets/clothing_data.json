@@ -1,0 +1,58 @@
+[
+  {
+    "title": "T-shirt black",
+    "description": "description1",
+    "type": "item_1",
+    "review": 15,
+    "rating": 4,
+    "price": 480
+  },
+  {
+    "title": "Coat",
+    "description": "description2",
+    "type": "coat",
+    "review": 8,
+    "rating": 5,
+    "price": 320
+  },
+  {
+    "title": "Pants",
+    "description": "description3",
+    "type": "pants",
+    "review": 34,
+    "rating": 5,
+    "price": 540
+  },
+  {
+    "title": "Long Sleeves",
+    "description": "description4",
+    "type": "long_sleeves",
+    "review": 34,
+    "rating": 5,
+    "price": 540
+  },
+  {
+    "title": "Pants",
+    "description": "description3",
+    "type": "pants",
+    "review": 34,
+    "rating": 5,
+    "price": 540
+  },
+  {
+    "title": "Pants",
+    "description": "description3",
+    "type": "pants",
+    "review": 34,
+    "rating": 5,
+    "price": 540
+  },
+  {
+    "title": "Pants",
+    "description": "description3",
+    "type": "pants.jpg",
+    "review": 34,
+    "rating": 5,
+    "price": 540
+  }
+]

@@ -61,8 +61,8 @@
                     android:layout_margin="16dp"
                     android:background="@drawable/gray_background"
                     android:layout_marginStart="16dp"
-                    app:layout_constraintEnd_toEndOf="16dp"
-                    app:layout_constraintStart_toStartOf="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/back_btn"
                     >
                 </View>
@@ -73,7 +73,7 @@
                     android:layout_height="270dp"
                     android:layout_marginBottom="45dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/item_4"
+                    android:src="@drawable/coat"
                     android:layout_margin="16dp"
                     app:layout_constraintBottom_toBottomOf="@id/view2"
                     app:layout_constraintEnd_toEndOf="@+id/view2"
@@ -93,7 +93,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/titleTxt"
+                        android:id="@+id/titleTxt2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Title"
@@ -104,7 +104,7 @@
                         ></TextView>
 
                     <TextView
-                        android:id="@+id/priceTxt"
+                        android:id="@+id/priceTxt2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="$10"
@@ -165,7 +165,7 @@
                     android:src="@drawable/review" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/reviewTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
@@ -176,7 +176,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/reviewTxt"
+                    android:id="@+id/textView23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Review"
@@ -193,7 +193,7 @@
 
 
             <TextView
-                android:id="@+id/descriptionTxt"
+                android:id="@+id/descriptionTxt2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
