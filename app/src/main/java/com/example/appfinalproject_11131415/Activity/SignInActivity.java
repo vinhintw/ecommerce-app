@@ -1,6 +1,8 @@
 package com.example.appfinalproject_11131415.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -31,9 +33,14 @@ public class SignInActivity extends AppCompatActivity {
                 Boolean checkCredentials = dbHelper.checkNamePassword(name, password);
 
                 if (checkCredentials){
+                    SharedPreferences sharedPreferences = getSharedPreferences("user_pref", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.putString("userName", name); //put userName
+                    editor.apply();
+
                     Toast.makeText(SignInActivity.this, "Sign In Successfully", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("USERNAME", name);
                     startActivity(intent);
                 } else {
                     Toast.makeText(SignInActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
