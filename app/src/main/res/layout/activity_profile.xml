@@ -34,18 +34,49 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/circles"
-                    app:layout_constraintEnd_toStartOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:scaleType="centerCrop"
                     />
 
                 <ImageView
                     android:id="@+id/imageView19"
+                    android:layout_width="155dp"
+                    android:layout_height="126dp"
+                    android:layout_marginTop="88dp"
+                    android:src="@drawable/profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/imageView15"
+                    app:layout_constraintTop_toTopOf="@id/view6"
+                    />
+
+                <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/profile" />
+                    android:text="user name"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="@id/imageView19"
+                    app:layout_constraintStart_toStartOf="@id/imageView19"
+                    app:layout_constraintTop_toBottomOf="@id/imageView19"
+
+                    />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user@gmail.com"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+
+                    />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
