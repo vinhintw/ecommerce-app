@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
 	private String UserName = "";
 
 
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,11 +66,9 @@ public class MainActivity extends AppCompatActivity {
 		homeBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MainActivity.class)));
 
 		cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
-		profileBtn.setOnClickListener(v -> {
-			if(binding.userNameTxt.getText().equals("")){
-				startActivity(new Intent(MainActivity.this, SignInActivity.class));
-			}
-		});
+		profileBtn.setOnClickListener(v ->
+				startActivity(new Intent(MainActivity.this, ProfileActivity.class)
+						.putExtra("userName", UserName)));
 	}
 	private void initRecyclerView() {
 		recyclerViewPopular = findViewById(R.id.view1);
@@ -80,21 +76,11 @@ public class MainActivity extends AppCompatActivity {
 		adapterPopular = new PopularAdapter(loadItem());
 		recyclerViewPopular.setAdapter(adapterPopular);
 	}
+
 	private ArrayList<PopularDomain> loadItem() {
 		ArrayList<PopularDomain> items = new ArrayList<>();
-
 		try {
-			InputStream inputStream = getAssets().open(JSON_FILE_NAME);
-			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-			StringBuilder stringBuilder = new StringBuilder();
-			String line;
-			while ((line = bufferedReader.readLine()) != null) {
-				stringBuilder.append(line);
-			}
-			inputStream.close();
-
-			JSONArray jsonArray = new JSONArray(stringBuilder.toString());
+			JSONArray jsonArray = new JSONArray(loadJsonData(JSON_FILE_NAME).toString());
 			for (int i = 0; i < jsonArray.length(); i++) {
 				JSONObject jsonObject = jsonArray.getJSONObject(i);
 				String title = jsonObject.getString("title");
@@ -109,9 +95,27 @@ public class MainActivity extends AppCompatActivity {
 				Log.d("msg", items.get(i).getPicUrl() + " " + items.size());
 			}
 
-		} catch (IOException | JSONException e) {
+		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return items;
+	}
+
+	private StringBuilder loadJsonData(String jsonFileName) {
+		try {
+			InputStream inputStream = getAssets().open(jsonFileName);
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+			StringBuilder stringBuilder = new StringBuilder();
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				stringBuilder.append(line);
+			}
+			inputStream.close();
+			return stringBuilder;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

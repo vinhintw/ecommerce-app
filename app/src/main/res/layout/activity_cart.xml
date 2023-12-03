@@ -298,11 +298,11 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/orderBtn"
-                style="@android:style/Widget.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/green_btn"
+                style="@android:style/Widget.Button"
                 android:text="Order Now"
                 android:textColor="@color/white"
                 android:textSize="18sp">

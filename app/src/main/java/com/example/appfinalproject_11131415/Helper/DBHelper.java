@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.appfinalproject_11131415.Domain.PopularDomain;
+import com.example.appfinalproject_11131415.Domain.User;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public  static final String DB_NAME = "Signup.db";
@@ -19,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase myDatabase) {
-        myDatabase.execSQL("CREATE TABLE allUsers(name TEXT primary key, mobile_phone TEXT, email TEXT, password TEXT)");
+        myDatabase.execSQL("CREATE TABLE allUsers(name TEXT primary key, mobile_phone TEXT, email TEXT, password TEXT, address TEXT, postal_code TEXT)");
 
     }
 
@@ -92,7 +95,22 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return false;
         }
-
+    }
+    public User get(String name){
+        SQLiteDatabase myDb = this.getWritableDatabase();
+        Cursor cursor = myDb.rawQuery("SELECT * FROM allUsers WHERE name = ?", new String[]{name});
+        if (cursor.moveToFirst()) {
+            String mobile = cursor.getString(1);
+            String email = cursor.getString(2);
+            String address = cursor.getString(4);
+            String postalCode = cursor.getString(5); // Change to correct index
+            User user = new User(name, mobile, email, address, postalCode);
+            cursor.close(); // Close the cursor to avoid resource leaks
+            return user;
+        } else {
+            // Handle the case where no data is found
+            return null;
+        }
     }
 
 }
