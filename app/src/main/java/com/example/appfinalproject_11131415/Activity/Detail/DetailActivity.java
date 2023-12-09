@@ -1,21 +1,19 @@
-package com.example.appfinalproject_11131415.Activity;
+package com.example.appfinalproject_11131415.Activity.Detail;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.appfinalproject_11131415.Activity.Main.MainActivity;
 import com.example.appfinalproject_11131415.Domain.PopularDomain;
-import com.example.appfinalproject_11131415.Helper.ManagementCart;
+import com.example.appfinalproject_11131415.Model.ManagementCart;
 import com.example.appfinalproject_11131415.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends AppCompatActivity {
     ActivityDetailBinding binding;
-
-    ImageView picItem;
     private ManagementCart managementCart;
     private int numberOder = 1;
     private PopularDomain object;
@@ -28,9 +26,7 @@ public class DetailActivity extends AppCompatActivity {
         managementCart = new ManagementCart(this);
         getBundle();
     }
-
     private void getBundle() {
-
         object = (PopularDomain) getIntent().getSerializableExtra("object");
         int drawableResourceId = this.getResources().getIdentifier(object.getPicUrl(), "drawable", this.getPackageName());
 
@@ -44,12 +40,10 @@ public class DetailActivity extends AppCompatActivity {
         binding.addToCartBtn.setOnClickListener(v -> {
             object.setNumberCart(numberOder);
             managementCart.insertFood(object);
-
         });
         binding.backBtn.setOnClickListener(v -> {
             Intent intent = new Intent(DetailActivity.this, MainActivity.class);
                 startActivity(intent);
         });
     }
-
 }

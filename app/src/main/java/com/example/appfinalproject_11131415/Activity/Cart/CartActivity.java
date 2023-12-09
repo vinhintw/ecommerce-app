@@ -1,4 +1,4 @@
-package com.example.appfinalproject_11131415.Activity;
+package com.example.appfinalproject_11131415.Activity.Cart;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,23 +7,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ScrollView;
 
+import com.example.appfinalproject_11131415.Activity.Main.MainActivity;
 import com.example.appfinalproject_11131415.Adapter.CartAdapter;
-import com.example.appfinalproject_11131415.Helper.ManagementCart;
-import com.example.appfinalproject_11131415.R;
+import com.example.appfinalproject_11131415.Model.ManagementCart;
 import com.example.appfinalproject_11131415.databinding.ActivityCartBinding;
-import com.example.appfinalproject_11131415.databinding.ActivityDetailBinding;
 
 public class CartActivity extends AppCompatActivity {
-
     private ActivityCartBinding binding;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private ScrollView scrollView;
     private ManagementCart managementCart;
     private double tax;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +26,11 @@ public class CartActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         managementCart = new ManagementCart(this);
-
         recyclerView = binding.view2;
         setVariable();
         calculateCart();
         initList();
     }
-
     private void initList() {
         if (managementCart.getlistCart().isEmpty()){
             binding.emptyTxt.setVisibility(View.VISIBLE);
@@ -48,15 +41,12 @@ public class CartActivity extends AppCompatActivity {
             binding.backEmptyBtn.setVisibility(View.GONE);
             binding.scrollView2.setVisibility(View.VISIBLE);
         }
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         adapter = new CartAdapter(managementCart.getlistCart(), this, () -> calculateCart());
         recyclerView.setAdapter(adapter);
-
     }
-
     private void calculateCart(){
         double percentTax = 0.02;
         double delivery = 10;
@@ -80,7 +70,4 @@ public class CartActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
-
-
-
 }

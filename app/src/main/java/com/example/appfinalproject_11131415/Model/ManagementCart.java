@@ -1,4 +1,4 @@
-package com.example.appfinalproject_11131415.Helper;
+package com.example.appfinalproject_11131415.Model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

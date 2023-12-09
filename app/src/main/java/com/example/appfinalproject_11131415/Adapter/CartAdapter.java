@@ -1,6 +1,5 @@
 package com.example.appfinalproject_11131415.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,80 +13,59 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.appfinalproject_11131415.Domain.PopularDomain;
-import com.example.appfinalproject_11131415.Helper.ChangeNumberItemsListener;
-import com.example.appfinalproject_11131415.Helper.ManagementCart;
+import com.example.appfinalproject_11131415.Model.ChangeNumberItemsListener;
+import com.example.appfinalproject_11131415.Model.ManagementCart;
 import com.example.appfinalproject_11131415.R;
+import com.example.appfinalproject_11131415.databinding.ViewholderCartBinding;
 
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
-
-        ArrayList<PopularDomain> listItemSelected;
-
-        ChangeNumberItemsListener changeNumberItemsListener;
+        private ArrayList<PopularDomain> listItemSelected;
+        private ChangeNumberItemsListener changeNumberItemsListener;
         private ManagementCart managementCart;
-
     public CartAdapter(ArrayList<PopularDomain> listItemSelected, Context context, ChangeNumberItemsListener changeNumberItemsListener)  {
         this.listItemSelected = listItemSelected;
         managementCart = new ManagementCart(context);
         this.changeNumberItemsListener = changeNumberItemsListener;
     }
-
     @NonNull
     @Override
     public CartAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart, parent, false);
-
-        return new Viewholder(inflate);
+        ViewholderCartBinding binding = ViewholderCartBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new Viewholder(binding);
     }
-
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.Viewholder holder, int position) {
-        holder.title.setText(listItemSelected.get(position).getTitle());
-        holder.feeEachItem.setText("$" + listItemSelected.get(position).getPrice());
-        holder.totalEachItem.setText(("$" + listItemSelected.get(position).getNumberInCart()*listItemSelected.get(position).getPrice()));
-        holder.num.setText(String.valueOf(listItemSelected.get(position).getNumberInCart()));
-
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(listItemSelected.get(position).getPicUrl(),
-                "drawable", holder.itemView.getContext().getPackageName());
-
-        Glide.with(holder.itemView.getContext()).load(drawableResourceId)
-                .transform(new GranularRoundedCorners(30,30,30,30)).into(holder.pic);
-
-        holder.plusItem.setOnClickListener(v -> managementCart.plusNumberItem(listItemSelected, position, () -> {
+        holder.bind(listItemSelected.get(position));
+        holder.binding.plusCartBtn.setOnClickListener(v -> managementCart.plusNumberItem(listItemSelected, position, () -> {
             notifyDataSetChanged();
             changeNumberItemsListener.change();
         }));
-
-        holder.minusItem.setOnClickListener(v -> managementCart.minusNumberItem(listItemSelected, position, () -> {
+        holder.binding.minusCartBtn.setOnClickListener(v -> managementCart.minusNumberItem(listItemSelected, position, () -> {
             notifyDataSetChanged();
             changeNumberItemsListener.change();
         }));
     }
-
     @Override
     public int getItemCount() {
         return listItemSelected.size();
     }
-
     public class Viewholder extends RecyclerView.ViewHolder{
-        TextView title, feeEachItem, plusItem, minusItem;
-        ImageView pic;
-        TextView totalEachItem, num;
-
-
-        public Viewholder(@NonNull View itemView) {
-            super(itemView);
-
-            title = itemView.findViewById(R.id.titleTxt3);
-            pic = itemView.findViewById(R.id.picincart);
-            feeEachItem = itemView.findViewById(R.id.feeEachItem);
-            plusItem = itemView.findViewById(R.id.plusCartBtn);
-            minusItem = itemView.findViewById(R.id.minusCartBtn);
-            totalEachItem = itemView.findViewById(R.id.totalEachItem);
-            num = itemView.findViewById(R.id.numberItemTxt);
-
+        private final ViewholderCartBinding binding;
+        public Viewholder(ViewholderCartBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+        public void bind(PopularDomain item) {
+            binding.titleTxt3.setText(item.getTitle());
+            binding.feeEachItem.setText("$" + item.getPrice());
+            binding.totalEachItem.setText(("$" + item.getNumberInCart()*item.getPrice()));
+            binding.numberItemTxt.setText(String.valueOf(item.getNumberInCart()));
+            int drawableResourceId = itemView.getContext().getResources().getIdentifier(item.getPicUrl(),
+                "drawable", itemView.getContext().getPackageName());
+            Glide.with(itemView.getContext()).load(drawableResourceId)
+                .transform(new GranularRoundedCorners(30,30,30,30)).into(binding.picincart);
         }
     }
-
 }

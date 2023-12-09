@@ -1,58 +1,58 @@
 [
   {
     "title": "T-shirt black",
-    "description": "description1",
+    "description": "Unleash your style with the T-shirt Black, a testament to unique design and superior quality",
     "type": "item_1",
-    "review": 15,
+    "review": 356,
     "rating": 4,
     "price": 480
   },
   {
     "title": "Coat",
-    "description": "description2",
+    "description": "Elevate your wardrobe with our meticulously crafted Coat collection, seamlessly blending warmth and fashion.",
     "type": "coat",
-    "review": 8,
-    "rating": 5,
+    "review": 784,
+    "rating": 4,
     "price": 320
   },
   {
     "title": "Pants",
-    "description": "description3",
+    "description": "Redefine comfort and style with our meticulously tailored Pants collection. ",
     "type": "pants",
-    "review": 34,
+    "review": 234,
     "rating": 5,
     "price": 540
   },
   {
     "title": "Long Sleeves",
-    "description": "description4",
+    "description": "Embrace sophistication and comfort with our Long Sleeves collection.",
     "type": "long_sleeves",
-    "review": 34,
-    "rating": 5,
-    "price": 540
+    "review": 456,
+    "rating": 4,
+    "price": 690
   },
   {
     "title": "Short Sleeves",
-    "description": "description3",
+    "description": "Discover modernity and comfort in our Short Sleeves collection, featuring contemporary designs for every occasion.",
     "type": "short_sleeve",
-    "review": 34,
-    "rating": 4,
-    "price": 540
+    "review": 209,
+    "rating": 3,
+    "price": 590
   },
   {
-    "title": "Pants",
-    "description": "description3",
-    "type": "coat",
-    "review": 34,
+    "title": "Knitted Sweater",
+    "description": "Indulge in the warmth and elegance of our Knitted Sweater collection, meticulously crafted from premium wool.",
+    "type": "sweater",
+    "review": 426,
     "rating": 5,
-    "price": 540
+    "price": 790
   },
   {
-    "title": "Pants",
-    "description": "description3",
-    "type": "pants",
-    "review": 34,
+    "title": "Overalls",
+    "description": "Effortlessly fuse style and comfort with our Overalls collection, a perfect embodiment of fashion-forward practicality.",
+    "type": "overalls",
+    "review": 342,
     "rating": 5,
-    "price": 540
+    "price": 1290
   }
 ]

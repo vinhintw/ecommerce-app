@@ -1,22 +1,19 @@
-package com.example.appfinalproject_11131415.Activity;
+package com.example.appfinalproject_11131415.Activity.Profile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.content.SharedPreferences;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appfinalproject_11131415.Activity.Main.MainActivity;
 import com.example.appfinalproject_11131415.Domain.User;
-import com.example.appfinalproject_11131415.Helper.DBHelper;
-import com.example.appfinalproject_11131415.R;
+import com.example.appfinalproject_11131415.Model.Helper.DBHelper;
 import com.example.appfinalproject_11131415.databinding.ActivityProfileBinding;
 
 public class ProfileActivity extends AppCompatActivity {
-
 	ActivityProfileBinding binding;
-
 	private String userName;
     DBHelper dbHelper;
 	@Override
@@ -29,9 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
 		dbHelper = new DBHelper(this);
 		User user = dbHelper.get(userName);
 		bindingData(user);
-
 	}
-
 	private void bindingData(User user) {
 		binding.profileUserNameTxt.setText(user.getName());
 		binding.profileEmailTxt.setText(user.getEmail());
@@ -47,6 +42,5 @@ public class ProfileActivity extends AppCompatActivity {
 			editor.apply();
 			startActivity(new Intent(getApplicationContext(), MainActivity.class));
 		});
-
 	}
 }

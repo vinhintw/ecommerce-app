@@ -1,4 +1,4 @@
-package com.example.appfinalproject_11131415.Activity;
+package com.example.appfinalproject_11131415.Activity.Authentication;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appfinalproject_11131415.Helper.DBHelper;
+import com.example.appfinalproject_11131415.Activity.Main.MainActivity;
+import com.example.appfinalproject_11131415.Model.Helper.DBHelper;
 import com.example.appfinalproject_11131415.databinding.ActivitySigninBinding;
 
 public class SignInActivity extends AppCompatActivity {

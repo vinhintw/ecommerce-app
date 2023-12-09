@@ -1,4 +1,4 @@
-package com.example.appfinalproject_11131415.Helper;
+package com.example.appfinalproject_11131415.Model.Helper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,23 +12,19 @@ import com.example.appfinalproject_11131415.Domain.PopularDomain;
 import com.example.appfinalproject_11131415.Domain.User;
 
 public class DBHelper extends SQLiteOpenHelper {
-
     public  static final String DB_NAME = "Signup.db";
 
     public DBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, 1);
     }
-
-
     @Override
     public void onCreate(SQLiteDatabase myDatabase) {
         myDatabase.execSQL("CREATE TABLE allUsers(name TEXT primary key, mobile_phone TEXT, email TEXT, password TEXT, address TEXT, postal_code TEXT)");
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase myDatabase, int oldVersion, int newVersion) {
-        //myDatabase.execSQL("DROP TABLE IF EXISTS allUsers");
+        myDatabase.execSQL("DROP TABLE IF EXISTS allUsers");
     }
     public Boolean insertData(String name, String phone, String email, String password){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
@@ -85,7 +81,6 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-
     public boolean checkNamePassword(String name, String password){
         SQLiteDatabase myDb = this.getWritableDatabase();
         Cursor cursor = myDb.rawQuery("SELECT * FROM allUsers WHERE name = ? AND password = ?", new String[]{name, password});
@@ -108,9 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor.close(); // Close the cursor to avoid resource leaks
             return user;
         } else {
-            // Handle the case where no data is found
             return null;
         }
     }
-
 }

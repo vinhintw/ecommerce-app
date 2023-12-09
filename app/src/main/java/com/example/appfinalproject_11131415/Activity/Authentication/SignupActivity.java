@@ -1,4 +1,4 @@
-package com.example.appfinalproject_11131415.Activity;
+package com.example.appfinalproject_11131415.Activity.Authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,11 +6,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appfinalproject_11131415.Helper.DBHelper;
+import com.example.appfinalproject_11131415.Model.Helper.DBHelper;
 import com.example.appfinalproject_11131415.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
-
     ActivitySignupBinding binding;
     private DBHelper dbHelper;
     @Override
@@ -47,7 +46,6 @@ public class SignupActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(SignupActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
             }
-
         });
         binding.signInRedirectText.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignInActivity.class)));
         binding.signupBackBtn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SignInActivity.class)));
